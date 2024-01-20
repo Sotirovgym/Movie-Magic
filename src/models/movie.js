@@ -1,4 +1,4 @@
-class Cat{
+class Movie{
     constructor(id, title, genre, director, year, imageURL, rating, description){
         this.id = id;
         this.tit = title;
@@ -11,4 +11,4 @@ class Cat{
     }
 }
 
-module.exports = Cat;
+module.exports = Movie;
