@@ -8,6 +8,10 @@ router.get('/create', (req, res) => {
     res.render('create');
 });
 
+router.post('/create', (req, res) => {
+    res.redirect('/');
+});
+
 router.get('/search', (req, res) => {
     res.render('search');
 });
