@@ -1,28 +1,12 @@
 const router = require('express').Router();
 
-router.get('/', (req, res) => {
-    res.render('home');
-});
+const homeController = require('./controllers/homeController');
+const movieController = require('./controllers/movieController');
+const searchController = require('./controllers/searchController');
 
-router.get('/create', (req, res) => {
-    res.render('create');
-});
-
-router.post('/create', (req, res) => {
-    res.redirect('/');
-});
-
-router.get('/search', (req, res) => {
-    res.render('search');
-});
-
-router.get('/about', (req, res) => {
-    res.render('about');
-});
-
-router.get('/details', (req, res) => {
-    res.render('details');
-});
+router.use(homeController);
+router.use(movieController);
+router.use(searchController);
 
 router.get('*', (req, res) => {
     res.render('404');
