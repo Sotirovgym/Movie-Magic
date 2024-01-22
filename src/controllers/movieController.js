@@ -8,6 +8,7 @@ router.get('/create', (req, res) => {
 
 router.post('/create', (req, res) => {
     movieService.create(req.body);
+    res.redirect('/');
 });
 
 router.get('/details', (req, res) => {
