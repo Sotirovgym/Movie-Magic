@@ -6,3 +6,7 @@ exports.create = (movieData) => {
     data.push(movieData);
     fs.writeFile(path.resolve('src/config/database.json'), JSON.stringify(data), 'utf-8', () => console.log('The movie was created successfully!'));
 }
+
+exports.getAll = () => {
+    return data;
+}
