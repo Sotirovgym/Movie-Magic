@@ -15,4 +15,9 @@ router.get('/details', (req, res) => {
     res.render('details');
 });
 
+router.get('/details/:id', (req, res) => {
+    const movie = movieService.getByID(req.params.id);
+    res.render('details', movie);
+});
+
 module.exports = router;
