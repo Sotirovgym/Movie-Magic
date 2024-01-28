@@ -1,11 +1,10 @@
 const fs = require('fs');
 const path = require('path');
 const data = require('../config/database.json');
+const Movie = require('../models/Movie');
 
-exports.create = (movieData) => {
-    movieData.id = data.length + 1;
-    data.push(movieData);
-    fs.writeFile(path.resolve('src/config/database.json'), JSON.stringify(data), 'utf-8', () => console.log('The movie was created successfully!'));
+exports.create = async (movieData) => {
+    return await Movie.create(movieData);
 }
 
 exports.getAll = () => {
