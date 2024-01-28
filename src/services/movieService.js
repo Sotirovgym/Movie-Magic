@@ -1,5 +1,3 @@
-const fs = require('fs');
-const path = require('path');
 const Movie = require('../models/Movie');
 
 exports.create = (movieData) => {
