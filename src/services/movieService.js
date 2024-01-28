@@ -12,6 +12,5 @@ exports.getAll = () => {
 }
 
 exports.getByID = (id) => {
-    const movie = data.find(movie => movie.id == id);
-    return movie;
+    return Movie.findById(id);
 }

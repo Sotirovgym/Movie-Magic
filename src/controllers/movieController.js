@@ -16,12 +16,12 @@ router.post('/create', async (req, res) => {
     }
 });
 
-router.get('/details', (req, res) => {
-    res.render('details');
-});
+// router.get('/details', (req, res) => {
+//     res.render('details');
+// });
 
-router.get('/details/:id', (req, res) => {
-    const movie = movieService.getByID(req.params.id);
+router.get('/details/:id', async (req, res) => {
+    const movie = await movieService.getByID(req.params.id).lean();
     res.render('details', movie);
 });
 
