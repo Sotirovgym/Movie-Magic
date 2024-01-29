@@ -10,5 +10,12 @@ exports.getAll = () => {
 }
 
 exports.getByID = (id) => {
-    return Movie.findById(id);
+    return Movie.findById(id).populate('casts');
+}
+
+exports.attachCast = async (movieID, castID) => {
+    // const movie = await this.getByID(movieID);
+    // movie.casts.push(castID);
+    // return movie.save();
+    return Movie.findByIdAndUpdate(movieID, { $push: { casts: castID } });
 }
