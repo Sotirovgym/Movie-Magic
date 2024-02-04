@@ -42,4 +42,9 @@ router.get('/details/:id', async (req, res) => {
     res.render('movie/details', { movie });
 });
 
+router.get('/movies/:id/edit', async (req, res) => {
+    const movie = await movieService.getByID(req.params.id).lean();
+    res.render('movie/edit', { movie });
+});
+
 module.exports = router;
