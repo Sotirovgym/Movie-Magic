@@ -1,8 +1,7 @@
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const jwt = require('../lib/jwt');
-
-const secretKey = 'asdlfjk2345!@#$kljpasdfj1235124;k2345234tgsdf';
+const { SECRET } = require('../config/config');
 
 exports.register = (userData) => {
     return User.create(userData);
@@ -11,7 +10,7 @@ exports.register = (userData) => {
 exports.login = async (email, password) => {
     // Get user from db
     const user = await User.findOne({ email: email });
-
+    
     // Check if user exists
     if (!user){
         throw new Error("Email or password doesn't match!");
@@ -29,7 +28,7 @@ exports.login = async (email, password) => {
         _id: user._id,
         email: user.email
     }
-    const token = await jwt.sign(payload, secretKey, { expiresIn: '2h'});
+    const token = await jwt.sign(payload, SECRET, { expiresIn: '2h'});
 
     // Return the token
     return token;
