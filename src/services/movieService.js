@@ -4,6 +4,14 @@ exports.create = (movieData) => {
     return Movie.create(movieData);
 }
 
+exports.edit = (id, movieData) => {
+    return Movie.findByIdAndUpdate(id, movieData);
+}
+
+exports.delete = (id) => {
+    return Movie.findByIdAndDelete(id);
+}
+
 exports.getAll = () => {
     // Movie.find() returns an array of Documents, that's why we use lean() on the query result to get the object
     return Movie.find();
